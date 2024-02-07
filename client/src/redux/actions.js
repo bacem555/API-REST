@@ -1,4 +1,5 @@
- // actions.js
+
+    // actions.js
 import axios from "axios";
 import { DELETE, GET, ADD, EDIT } from "./actionTypes"; // Import EDIT action type
 
@@ -37,4 +38,21 @@ export const handleAdd = (newUser) => async (dispatch) => {
     console.log(error.response.data);
   }
 };
+
+// New handleEdit action
+export const handleEdit = (editedUser) => async (dispatch) => {
+  try {
+    const res = await axios.put(`user/edit/${editedUser._id}`, editedUser);
+    console.log(res)
+    dispatch({
+      type: EDIT,
+      payload: res.data,
+    });
+  } catch (error) {
+    alert('edit error');
+    console.log(error)
+  }
+};
+
+    
 
