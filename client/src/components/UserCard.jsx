@@ -1,7 +1,9 @@
+ 
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { getUsers, handleDelete } from '../red/actions';
+import EditUser from './EditUser';
 
 
 const UserCard = ({ user }) => {
@@ -25,7 +27,7 @@ const UserCard = ({ user }) => {
           >
             Delete
           </Button>
-          
+          <EditUser user={user}/>
         </Card.Body>
       </Card>
     </div>
